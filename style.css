@@ -27,41 +27,43 @@ body {
   color: #fff;
   background: #464a4d;
   overflow-x: hidden;
+  font-family: var(--font-family);
 }
 
+/* Header */
 header {
-  background: #373a3c;
-  padding: 1rem 2rem;
-  position: fixed;
-  width: 100%;
+  background-color: #2b2b2b;
+  padding: 12px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
   top: 0;
   z-index: 100;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.logo img {
+  height: 40px;
+  width: auto;
+  display: block;
 }
 
 nav {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  max-width: 1400px;
-  margin: 0 auto;
-}
-
-.logo {
-  font-size: 2rem;
-  font-weight: bold;
-  color: #107c10;
-}
-
-nav ul {
-  display: flex;
-  list-style: none;
-  gap: 2rem;
+  gap: 20px;
 }
 
 nav a {
-  color: #fff;
+  color: #ccc;
   text-decoration: none;
-  font-weight: 500;
+  font-size: 14px;
+  transition: color 0.3s;
+}
+
+nav a:hover {
+  color: white;
 }
 
 .search-bar {
@@ -81,119 +83,211 @@ nav a {
 }
 
 .my-xbox {
-  background: #373a3c;
-  padding: 0.5rem 1rem;
-  border-radius: 20px;
-  font-weight: 500;
+  color: #107c10;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
 }
+
+/* Hero Section */
 .hero {
-  height: 640px;
-  background-image: url(/img/Star-Wars-Battlefront-II-combat.png);
+  position: relative;
+  height: 500px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   display: flex;
   align-items: center;
   justify-content: center;
-  text-align: center;
-  position: relative;
-  margin-top: 80px;
+  overflow: hidden;
 }
 
-.hero-content h1 {
-  font-size: 4rem;
-  margin-bottom: 2rem;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.hero-content {
+  text-align: center;
+  z-index: 2;
+}
+
+.hero-title {
+  font-size: 48px;
+  margin-bottom: 10px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.hero-subtitle {
+  font-size: 20px;
+  margin-bottom: 30px;
+  opacity: 0.9;
 }
 
 .hero-buttons {
   display: flex;
-  gap: 1rem;
+  gap: 15px;
   justify-content: center;
 }
 
-.hero-buttons button {
-  background: #107c10;
+.btn-primary {
+  background-color: #107c10;
   color: white;
   border: none;
-  padding: 1rem 2rem;
-  font-size: 1.1rem;
-  border-radius: 5px;
+  padding: 12px 30px;
+  font-size: 16px;
   cursor: pointer;
-  font-weight: 500;
+  border-radius: 4px;
+  transition: background 0.3s;
 }
 
-.value-section {
-  max-width: 1400px;
-  margin: 4rem auto;
-  padding: 0 2rem;
+.btn-primary:hover {
+  background-color: #0e6b0e;
 }
 
-.value-title {
-  text-align: center;
-  margin-bottom: 3rem;
+.btn-secondary {
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 12px 30px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background 0.3s;
 }
 
-.xbox-icon {
-  font-size: 3rem;
-  font-weight: bold;
+.btn-secondary:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.slider-arrows {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 20px;
+  z-index: 2;
+}
+
+.slider-arrows span {
+  font-size: 30px;
   color: #107c10;
-  margin-bottom: 1rem;
+  cursor: pointer;
+  background: rgba(0, 0, 0, 0.5);
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
 }
 
-.value-title h2 {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
+/* Best Value Section */
+.best-value {
+  padding: 60px 40px;
+  text-align: center;
+  background-color: #2b2b2b;
 }
 
-.cards {
+.section-header {
+  margin-bottom: 40px;
+}
+
+.spahe img {
+  width: 50px;
+  height: 50px;
+  margin: 0 auto 15px;
+}
+
+.section-header h2 {
+  font-size: 32px;
+  font-weight: 300;
+}
+
+.section-header p {
+  font-size: 18px;
+  color: #ccc;
+}
+
+.cards-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: 2rem;
+  grid-template-columns: repeat(3, 320px);
+  gap: 30px;
+  justify-content: center;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .card {
-  background: #fff;
-  border-radius: 10px;
-  padding: 2rem;
-  text-align: center;
-  height: 400px;
+  width: 320px;
+  height: 420px;
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  text-align: left;
+  transition:
+    transform 0.3s,
+    box-shadow 0.3s;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  border: 1px solid #444;
 }
 
-.card img {
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.card-image {
+  height: 180px;
+  background-color: #333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.card-image img {
   width: 100%;
-  height: 150px;
+  height: 100%;
   object-fit: cover;
-  border-radius: 5px;
-  margin-bottom: 1rem;
 }
 
-.mixer-logo {
-  font-size: 3rem;
+.card-body {
+  padding: 20px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-title {
+  color: #333;
+  font-size: 18px;
   font-weight: bold;
-  margin-bottom: 1rem;
+  margin-bottom: 8px;
+  text-transform: uppercase;
 }
 
-.card h3 {
-  font-size: 1.8rem;
-  margin-bottom: 1rem;
-  color: #000;
+.card-text {
+  color: #333;
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 15px;
+  flex: 1;
 }
 
-.card p {
-  color: #000;
-}
-
-.card button {
-  background: #107c10;
-  color: white;
-  border: none;
-  padding: 1rem;
-  border-radius: 5px;
-  cursor: pointer;
-  font-weight: 500;
-  margin-top: auto;
+.card-text span {
+  display: block;
+  font-weight: 400;
+  font-size: 14px;
+  color: #107c10;
+  margin-top: 5px;
 }
 
 .btn-green {
@@ -204,121 +298,122 @@ nav a {
   cursor: pointer;
   border-radius: 4px;
   transition: background 0.3s;
-  border-radius: 4px;
-  width: 278px;
-  height: 60px;
-  background: #8dd83d;
+border-radius: 4px;
+width: 278px;
+height: 60px;
+background: #8dd83d;
 }
 
 .btn-green:hover {
   background-color: #339e33;
 }
+
 /* Exclusive Games Section */
 .exclusive-games {
-  padding: 60px 40px;
-  background-color: #1a1a1a;
-  text-align: center;
+    padding: 60px 40px;
+    background-color: #1a1a1a;
+    text-align: center;
 }
 
 .exclusive-games h2 {
-  font-size: 28px;
-  margin-bottom: 30px;
+    font-size: 28px;
+    margin-bottom: 30px;
 }
 
 .games-slider {
-  display: grid;
-  grid-template-columns: repeat(4, 353px);
-  gap: 20px;
-  justify-content: center;
-  max-width: 1500px;
-  margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 353px);
+    gap: 20px;
+    justify-content: center;
+    max-width: 1500px;
+    margin: 0 auto;
 }
 
 .game-card {
-  width: 353px;
-  height: 462px;
-  background: white;
-  border-radius: 8px;
-  overflow: hidden;
-  transition: transform 0.3s;
-  display: flex;
-  flex-direction: column;
+    width: 353px;
+    height: 462px;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s;
+    display: flex;
+    flex-direction: column;
 }
 
 .game-card:hover {
-  transform: scale(1.05);
+    transform: scale(1.05);
 }
 
 .game-image {
-  height: 250px;
-  background-color: #444;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
+    height: 250px;
+    background-color: #444;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
 }
 
 .game-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .game-body {
-  padding: 20px;
-  text-align: left;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
+    padding: 20px;
+    text-align: left;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
 }
 
 .game-title {
-  color: #333;
-  font-size: 18px;
-  font-weight: 600;
-  margin-bottom: 10px;
+    color: #333;
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 10px;
 }
 
 .game-desc {
-  color: #666;
-  font-size: 14px;
-  margin-bottom: 20px;
-  flex: 1;
+    color: #666;
+    font-size: 14px;
+    margin-bottom: 20px;
+    flex: 1;
 }
 
 .game-body .btn-green {
-  background-color: #107c10;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  font-size: 14px;
-  cursor: pointer;
-  border-radius: 4px;
-  transition: background 0.3s;
-  width: 100%;
+    background-color: #107C10;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background 0.3s;
+    width: 100%;
 }
 
 .game-body .btn-green:hover {
-  background-color: #0e6b0e;
+    background-color: #0e6b0e;
 }
 
 .store-btn {
-  border-radius: 4px;
-  width: 207px;
-  height: 53px;
-  background: linear-gradient(180deg, #686c6f 0%, #373a3c 100%);
-  display: block;
-  margin: 30px auto 0;
-  color: white;
-  border: none;
-  padding: 12px 40px;
-  font-size: 16px;
-  cursor: pointer;
-  transition: background 0.3s;
+    border-radius: 4px;
+    width: 207px;
+    height: 53px;
+    background: linear-gradient(180deg, #686c6f 0%, #373a3c 100%);
+    display: block;
+    margin: 30px auto 0;
+    color: white;
+    border: none;
+    padding: 12px 40px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s;
 }
 
 .store-btn:hover {
-  background: linear-gradient(180deg, #107c10 0%, #0e6b0e 100%);
+    background: linear-gradient(180deg, #107C10 0%, #0e6b0e 100%);
 }
 
 /* Design Lab Section */
@@ -345,9 +440,9 @@ nav a {
 
 .design-lab p {
   margin-bottom: 25px;
-  font-weight: 400;
-  font-size: 24px;
-  color: #fff;
+font-weight: 400;
+font-size: 24px;
+color: #fff;
 }
 
 .design-lab-buttons {
@@ -365,9 +460,10 @@ nav a {
   transition: background 0.3s;
   background: linear-gradient(180deg, #686c6f 0%, #373a3c 100%);
   border-radius: 4px;
-  width: 207px;
-  height: 60px;
+width: 207px;
+height: 60px;
 }
+
 
 .controllers-grid {
   display: grid;
@@ -402,9 +498,10 @@ footer {
 }
 
 .footer-column h3 {
-  color: #7dd42f;
+ color: #7dd42f;
   font-size: 14px;
   margin-bottom: 15px;
+ 
 }
 
 .footer-column a {
@@ -440,9 +537,9 @@ footer {
   align-items: center;
   max-width: 1200px;
   margin: 30px auto 0;
-  font-weight: 400;
-  font-size: 16px;
-  color: #fff;
+font-weight: 400;
+font-size: 16px;
+color: #fff;
 }
 
 /* Responsive */
